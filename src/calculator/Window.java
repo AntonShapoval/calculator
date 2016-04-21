@@ -24,7 +24,7 @@ public class Window extends JFrame  {
 	String s;
 	
 	Window(String s){
-		super("Calculator");
+		super("Калькулятор");
 		
 		this.s=s;
 
