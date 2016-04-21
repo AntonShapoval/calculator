@@ -27,7 +27,7 @@ public class Calculator implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		//Ввод числа
+		//Р’РІРѕРґ С‡РёСЃРµР»
 		if (e.getSource()==w.b1){if(s.equals("0"))s=""; s+="1";w.tf1.setText(s);flagNull=false;}
 		else if (e.getSource()==w.b2){if(s.equals("0"))s=""; s+="2";w.tf1.setText(s);flagNull=false;}
 		else if (e.getSource()==w.b3){if(s.equals("0"))s=""; s+="3";w.tf1.setText(s);flagNull=false;}
@@ -39,7 +39,7 @@ public class Calculator implements ActionListener {
 		else if (e.getSource()==w.b9){if(s.equals("0"))s=""; s+="9";w.tf1.setText(s);flagNull=false;}
 		else if (e.getSource()==w.b0){if(s.equals("0"))s=""; s+="0";w.tf1.setText(s);flagNull=true;}
 		else if (e.getSource()==w.bZap&&!s.contains(".")){s+=".";w.tf1.setText(s);}
-		//Корректировка и очистка
+		//РљРѕСЂСЂРµРєС‚РёСЂРѕРІРєР° Рё РѕС‡РёСЃС‚РєР°
 		else if (e.getSource()==w.bBackspace){
 		if (flagBackSp&&!s.equals("0")){
 			if (s.length()==1){s="0"; w.tf1.setText(s);temp=0;}
@@ -55,7 +55,7 @@ public class Calculator implements ActionListener {
 		temp=0;
 		flagPlMin=true; flagBackSp=true;
 		plus=null; min=null; mult=null; div=null;}
-		//Плюс-минус
+		//РџР»СЋСЃ-РјРёРЅСѓСЃ
 		else if (e.getSource()==w.bPlMin){
 			if (flagPlMin&&!s.equals("0")){s="-"+s; flagPlMin=false;w.tf1.setText(s);}
 			else if (flagPlMin&&!flagBackSp){s=""; s="-"+temp;flagPlMin=false;w.tf1.setText(s);}
@@ -67,7 +67,7 @@ public class Calculator implements ActionListener {
 			
 			}
 		
-		//Математические операции
+		//РњР°С‚РµРјР°С‚РёС‡РµСЃРєРёРµ РѕРїРµСЂР°С†РёРё
 		//		
 		else if (e.getSource()==w.bPlus){if (s.equals("0"))a=temp;
 		else {temp=a=Double.parseDouble(s); s="0";}
@@ -96,7 +96,7 @@ public class Calculator implements ActionListener {
 			plus=null; min=null; mult=null; div=e.getSource();
 			flagPlMin=true; flagBackSp=true;
 			}
-		//Получение результата
+		//РџРѕР»СѓС‡РµРЅРёРµ СЂРµР·СѓР»СЊС‚Р°С‚Р°
 		else if (e.getSource()==w.bEqual&&plus!=null){
 			
 			if (s.equals("0")){s=""; temp+=a; s+=temp; w.tf1.setText(s); s="0"; flagBackSp=false;flagPlMin=true;}
@@ -129,11 +129,11 @@ public class Calculator implements ActionListener {
 		}
 		//
 		else if (e.getSource()==w.bEqual&&div!=null){
-			if (s.equals("0")&&!flagNull){if (a==0){s="Результат не определен"; w.tf1.setText(s); s="0";}
+			if (s.equals("0")&&!flagNull){if (a==0){s="ГђГҐГ§ГіГ«ГјГІГ ГІ Г­ГҐ Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­"; w.tf1.setText(s); s="0";}
 			else {s=""; temp/=a; s+=temp; w.tf1.setText(s); s="0"; flagBackSp=false;flagPlMin=true;}
 			}
 			else {b=Double.parseDouble(s); s="";
-			if (b==0){s="Деление на ноль не возможно"; w.tf1.setText(s); s="0";}
+			if (b==0){s="Г„ГҐГ«ГҐГ­ГЁГҐ Г­Г  Г­Г®Г«Гј Г­ГҐ ГўГ®Г§Г¬Г®Г¦Г­Г®"; w.tf1.setText(s); s="0";}
 			else{
 		temp=a/b; s+=temp; w.tf1.setText(s); a=b; s="0";
 		flagBackSp=false;
